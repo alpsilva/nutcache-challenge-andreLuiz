@@ -83,6 +83,19 @@ namespace NutcachePMGUI
             }
         }
 
+        private async void deleteEmployee(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.DeleteAsync(url + "/" + id))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        loadEmployees();
+                    }
+                }
+            }
+        }
 
     }
 }
