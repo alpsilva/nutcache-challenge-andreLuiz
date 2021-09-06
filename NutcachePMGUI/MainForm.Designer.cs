@@ -33,6 +33,9 @@ namespace NutcachePMGUI
             this.registeredEmployeesLabel = new System.Windows.Forms.Label();
             this.ListEmployeesButton = new System.Windows.Forms.Button();
             this.employeeDataGrid = new System.Windows.Forms.DataGridView();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.ch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,49 +96,84 @@ namespace NutcachePMGUI
             this.employeeDataGrid.TabIndex = 4;
             this.employeeDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGrid_CellContentClick);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(679, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 23);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Disable Employee";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(564, 11);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(109, 24);
+            this.editButton.TabIndex = 6;
+            this.editButton.Text = "Edit  Employee";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(458, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 23);
+            this.txtId.TabIndex = 7;
+            // 
             // ch_name
             // 
             this.ch_name.HeaderText = "Name";
             this.ch_name.Name = "ch_name";
+            this.ch_name.ReadOnly = true;
             // 
             // ch_email
             // 
             this.ch_email.HeaderText = "Email";
             this.ch_email.Name = "ch_email";
+            this.ch_email.ReadOnly = true;
             // 
             // ch_startDate
             // 
             this.ch_startDate.HeaderText = "Start Date";
             this.ch_startDate.Name = "ch_startDate";
+            this.ch_startDate.ReadOnly = true;
             // 
             // ch_team
             // 
             this.ch_team.HeaderText = "Team";
             this.ch_team.Name = "ch_team";
+            this.ch_team.ReadOnly = true;
             // 
             // ch_editButton
             // 
             this.ch_editButton.HeaderText = "Edit";
             this.ch_editButton.Name = "ch_editButton";
+            this.ch_editButton.ReadOnly = true;
             // 
             // ch_deleteButton
             // 
             this.ch_deleteButton.HeaderText = "Disable";
             this.ch_deleteButton.Name = "ch_deleteButton";
+            this.ch_deleteButton.ReadOnly = true;
             // 
             // ch_id
             // 
             this.ch_id.HeaderText = "id";
             this.ch_id.Name = "ch_id";
+            this.ch_id.ReadOnly = true;
             this.ch_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ch_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ch_id.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.employeeDataGrid);
             this.Controls.Add(this.ListEmployeesButton);
             this.Controls.Add(this.registeredEmployeesLabel);
@@ -155,6 +193,9 @@ namespace NutcachePMGUI
         private System.Windows.Forms.Label registeredEmployeesLabel;
         private System.Windows.Forms.Button ListEmployeesButton;
         private System.Windows.Forms.DataGridView employeeDataGrid;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_email;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_startDate;

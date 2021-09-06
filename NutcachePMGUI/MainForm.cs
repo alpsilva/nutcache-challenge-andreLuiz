@@ -75,6 +75,7 @@ namespace NutcachePMGUI
                             row[1] = emp.Email;
                             row[2] = emp.StartDate.ToString();
                             row[3] = emp.Team;
+                            row[6] = emp.Id.ToString();
                             employeeDataGrid.Rows.Add(row);
                         }
                              
@@ -83,7 +84,7 @@ namespace NutcachePMGUI
             }
         }
 
-        private async void deleteEmployee(int id)
+        private async void deleteEmployee(long id)
         {
             using (var httpClient = new HttpClient())
             {
@@ -97,5 +98,33 @@ namespace NutcachePMGUI
             }
         }
 
+        private void employeeDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (employeeDataGrid.Columns[e.ColumnIndex].Name == "ch_editButton")
+            {
+
+            }
+            if (employeeDataGrid.Columns[e.ColumnIndex].Name == "ch_deleteButton")
+            {
+                if (MessageBox.Show("Are you sure you wanto to delete this employee?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    // proceeds to delete employee
+
+
+                }
+            }
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you wanto to delete this employee?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // proceeds to delete employee
+                long id = long.Parse(txtId.Text);
+                deleteEmployee(id);
+            }
+
+        }
     }
 }
