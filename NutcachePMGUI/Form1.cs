@@ -4,22 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using NutcachePeopleManagement.Models;
 
 namespace NutcachePMGUI
 {
     public partial class Form1 : Form
     {
+        private string url = "https://localhost:44352/api/people";
+
         public Form1()
         {
             InitializeComponent();
-            ShowEmployees();
-        }
-
-        public void ShowEmployees()
-        {
+            loadEmployees();
         }
         
         // add new employee button
@@ -36,7 +37,46 @@ namespace NutcachePMGUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            loadEmployees();
+        }
 
+        private void ListEmployeesButton_Click(object sender, EventArgs e)
+        {
+            loadEmployees();
+        }
+
+        private async void loadEmployees()
+        {
+            List<Person> listEmployees = new List<Person>();
+
+            int nRows = employeeDataGrid.ColumnCount;
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        listEmployees = JsonConvert.DeserializeObject<Person[]>(jsonString).ToList();
+
+                        employeeDataGrid.Rows.Clear();
+                        
+                        foreach (Person emp in listEmployees)
+                        {
+                            string[] row = new string[nRows];
+
+                            row[0] = emp.Name;
+                            row[1] = emp.Email;
+                            row[2] = emp.StartDate.ToString();
+                            row[3] = emp.Team;
+
+                            employeeDataGrid.Rows.Add(row);
+                        }
+                             
+                    }
+                }
+            }
         }
     }
 }
