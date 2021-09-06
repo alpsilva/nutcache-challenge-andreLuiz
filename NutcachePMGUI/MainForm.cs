@@ -27,17 +27,12 @@ namespace NutcachePMGUI
         private void button1_Click(object sender, EventArgs e)
         {
             var addPopup = new FormAdd();
-            addPopup.FormClosed += addPopup_FormClosed;
+            addPopup.FormClosed += popup_FormClosed;
             addPopup.ShowDialog();
         }
-        private void addPopup_FormClosed(object sender, FormClosedEventArgs e)
+        private void popup_FormClosed(object sender, FormClosedEventArgs e)
         {
             loadEmployees();
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -118,13 +113,27 @@ namespace NutcachePMGUI
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you wanto to delete this employee?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this employee?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // proceeds to delete employee
                 long id = long.Parse(txtId.Text);
                 deleteEmployee(id);
             }
 
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            long id = long.Parse(txtId.Text);
+            var editPopup = new FormEdit(id);
+            editPopup.FormClosed += editPopup_FormClosed;
+            editPopup.ShowDialog();
+        }
+
+        private void editPopup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Employee info updated!");
+            loadEmployees();
         }
     }
 }

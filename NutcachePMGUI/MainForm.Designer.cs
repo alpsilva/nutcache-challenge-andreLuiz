@@ -33,9 +33,6 @@ namespace NutcachePMGUI
             this.registeredEmployeesLabel = new System.Windows.Forms.Label();
             this.ListEmployeesButton = new System.Windows.Forms.Button();
             this.employeeDataGrid = new System.Windows.Forms.DataGridView();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.ch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@ namespace NutcachePMGUI
             this.ch_editButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ch_deleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,32 +96,6 @@ namespace NutcachePMGUI
             this.employeeDataGrid.TabIndex = 4;
             this.employeeDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGrid_CellContentClick);
             // 
-            // deleteButton
-            // 
-            this.deleteButton.Location = new System.Drawing.Point(679, 12);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(109, 23);
-            this.deleteButton.TabIndex = 5;
-            this.deleteButton.Text = "Disable Employee";
-            this.deleteButton.UseVisualStyleBackColor = true;
-            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(564, 11);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(109, 24);
-            this.editButton.TabIndex = 6;
-            this.editButton.Text = "Edit  Employee";
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(458, 12);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 23);
-            this.txtId.TabIndex = 7;
-            // 
             // ch_name
             // 
             this.ch_name.HeaderText = "Name";
@@ -165,6 +139,33 @@ namespace NutcachePMGUI
             this.ch_id.ReadOnly = true;
             this.ch_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ch_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(679, 12);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 23);
+            this.deleteButton.TabIndex = 5;
+            this.deleteButton.Text = "Disable Employee";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.Location = new System.Drawing.Point(564, 11);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(109, 24);
+            this.editButton.TabIndex = 6;
+            this.editButton.Text = "Edit  Employee";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(458, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 23);
+            this.txtId.TabIndex = 7;
             // 
             // MainForm
             // 
