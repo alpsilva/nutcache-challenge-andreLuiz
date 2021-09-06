@@ -33,16 +33,14 @@ namespace NutcachePMGUI
             this.registeredEmployeesLabel = new System.Windows.Forms.Label();
             this.ListEmployeesButton = new System.Windows.Forms.Button();
             this.employeeDataGrid = new System.Windows.Forms.DataGridView();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ch_team = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ch_editButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ch_deleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.ch_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.editButton = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,13 +79,11 @@ namespace NutcachePMGUI
             this.employeeDataGrid.AllowUserToDeleteRows = false;
             this.employeeDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ch_id,
             this.ch_name,
             this.ch_email,
             this.ch_startDate,
-            this.ch_team,
-            this.ch_editButton,
-            this.ch_deleteButton,
-            this.ch_id});
+            this.ch_team});
             this.employeeDataGrid.Location = new System.Drawing.Point(12, 60);
             this.employeeDataGrid.Name = "employeeDataGrid";
             this.employeeDataGrid.ReadOnly = true;
@@ -95,50 +91,6 @@ namespace NutcachePMGUI
             this.employeeDataGrid.Size = new System.Drawing.Size(776, 378);
             this.employeeDataGrid.TabIndex = 4;
             this.employeeDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGrid_CellContentClick);
-            // 
-            // ch_name
-            // 
-            this.ch_name.HeaderText = "Name";
-            this.ch_name.Name = "ch_name";
-            this.ch_name.ReadOnly = true;
-            // 
-            // ch_email
-            // 
-            this.ch_email.HeaderText = "Email";
-            this.ch_email.Name = "ch_email";
-            this.ch_email.ReadOnly = true;
-            // 
-            // ch_startDate
-            // 
-            this.ch_startDate.HeaderText = "Start Date";
-            this.ch_startDate.Name = "ch_startDate";
-            this.ch_startDate.ReadOnly = true;
-            // 
-            // ch_team
-            // 
-            this.ch_team.HeaderText = "Team";
-            this.ch_team.Name = "ch_team";
-            this.ch_team.ReadOnly = true;
-            // 
-            // ch_editButton
-            // 
-            this.ch_editButton.HeaderText = "Edit";
-            this.ch_editButton.Name = "ch_editButton";
-            this.ch_editButton.ReadOnly = true;
-            // 
-            // ch_deleteButton
-            // 
-            this.ch_deleteButton.HeaderText = "Disable";
-            this.ch_deleteButton.Name = "ch_deleteButton";
-            this.ch_deleteButton.ReadOnly = true;
-            // 
-            // ch_id
-            // 
-            this.ch_id.HeaderText = "id";
-            this.ch_id.Name = "ch_id";
-            this.ch_id.ReadOnly = true;
-            this.ch_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ch_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // deleteButton
             // 
@@ -166,6 +118,38 @@ namespace NutcachePMGUI
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 23);
             this.txtId.TabIndex = 7;
+            // 
+            // ch_id
+            // 
+            this.ch_id.HeaderText = "id";
+            this.ch_id.Name = "ch_id";
+            this.ch_id.ReadOnly = true;
+            this.ch_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ch_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ch_name
+            // 
+            this.ch_name.HeaderText = "Name";
+            this.ch_name.Name = "ch_name";
+            this.ch_name.ReadOnly = true;
+            // 
+            // ch_email
+            // 
+            this.ch_email.HeaderText = "Email";
+            this.ch_email.Name = "ch_email";
+            this.ch_email.ReadOnly = true;
+            // 
+            // ch_startDate
+            // 
+            this.ch_startDate.HeaderText = "Start Date";
+            this.ch_startDate.Name = "ch_startDate";
+            this.ch_startDate.ReadOnly = true;
+            // 
+            // ch_team
+            // 
+            this.ch_team.HeaderText = "Team";
+            this.ch_team.Name = "ch_team";
+            this.ch_team.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -197,13 +181,11 @@ namespace NutcachePMGUI
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ch_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_email;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_startDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ch_team;
-        private System.Windows.Forms.DataGridViewButtonColumn ch_editButton;
-        private System.Windows.Forms.DataGridViewButtonColumn ch_deleteButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ch_id;
     }
 }
 

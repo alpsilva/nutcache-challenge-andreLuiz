@@ -66,11 +66,12 @@ namespace NutcachePMGUI
                         {
                             string[] row = new string[nRows];
 
-                            row[0] = emp.Name;
-                            row[1] = emp.Email;
-                            row[2] = emp.StartDate.ToString();
-                            row[3] = emp.Team;
-                            row[6] = emp.Id.ToString();
+                            row[0] = emp.Id.ToString();
+                            row[1] = emp.Name;
+                            row[2] = emp.Email;
+                            row[3] = emp.StartDate.ToString();
+                            row[4] = emp.Team;
+
                             employeeDataGrid.Rows.Add(row);
                         }
                              
