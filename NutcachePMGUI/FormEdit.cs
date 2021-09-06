@@ -29,13 +29,6 @@ namespace NutcachePMGUI
             InitializeComponent();
         }
 
-        private void FormEdit_Load(object sender, EventArgs e)
-        {
-            // The employee as is on the DB
-            //MessageBox.Show(_id.ToString());
-            txtId.Text = _id.ToString();          
-        }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to edit this employee with the new information?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -68,21 +61,29 @@ namespace NutcachePMGUI
 
         private async void getOneEmployee(long id)
         {
-            using (var httpClient = new HttpClient())
+            Person p = new Person();
+
+            HttpClient httpClient = new HttpClient();
+            var request = await httpClient.GetAsync(url + "/" + id.ToString());
+
+            if (request.IsSuccessStatusCode)
             {
-                using (var response = await httpClient.GetAsync(url+"/"+id.ToString()))
+                var jsonString = await request.Content.ReadAsStringAsync();
+                p = JsonConvert.DeserializeObject<Person>(jsonString);
+                if (p.CPF != null)
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        _employee = JsonConvert.DeserializeObject<Person>(jsonString);
-                       
-                        if (_employee.CPF == null)
-                        {
-                            MessageBox.Show("Employee not found.");
-                            this.Close();
-                        }
-                    }
+                    _employee = clonePerson(p);
+                    txtName.Text = p.Name;
+                    //BirthDatePicker.Value = Convert.ToDateTime(_employee.BirthDate.ToString());
+                    GenderDropDown.SelectedItem = p.Gender;
+                    txtEmail.Text = p.Email;
+                    txtCPF.Text = p.CPF;
+                    //StartDatePicker.Value = Convert.ToDateTime(_employee.StartDate.ToString());
+                    TeamDropdown.SelectedItem = p.Team;
+                } else
+                {
+                    MessageBox.Show("Employee not found.");
+                    this.Close();
                 }
             }
         }
@@ -122,17 +123,14 @@ namespace NutcachePMGUI
             return np;
         }
 
-        private void loadEmployeeButton_Click(object sender, EventArgs e)
+        private void FormEdit_Load(object sender, EventArgs e)
         {
-            getOneEmployee(long.Parse(txtId.Text));
+            getOneEmployee(_id);
+        }
 
-            txtName.Text = _employee.Name;
-            BirthDatePicker.Value = Convert.ToDateTime(_employee.BirthDate.ToString());
-            GenderDropDown.SelectedItem = _employee.Gender;
-            txtEmail.Text = _employee.Email;
-            txtCPF.Text = _employee.CPF;
-            StartDatePicker.Value = Convert.ToDateTime(_employee.StartDate.ToString());
-            TeamDropdown.SelectedItem = _employee.Team;
+        private void LoadEmployeeButton_Click(object sender, EventArgs e)
+        {
+            getOneEmployee(_id);
         }
     }
 }
