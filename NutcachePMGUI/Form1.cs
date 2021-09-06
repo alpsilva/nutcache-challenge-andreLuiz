@@ -27,7 +27,12 @@ namespace NutcachePMGUI
         private void button1_Click(object sender, EventArgs e)
         {
             var addPopup = new FormAdd();
+            addPopup.FormClosed += addPopup_FormClosed;
             addPopup.ShowDialog();
+        }
+        private void addPopup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            loadEmployees();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
