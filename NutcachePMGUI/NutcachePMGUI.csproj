@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Form1 - Copy.resx">
-      <DependentUpon>Form1.resx</DependentUpon>
+      <DependentUpon>MainForm.resx</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
 

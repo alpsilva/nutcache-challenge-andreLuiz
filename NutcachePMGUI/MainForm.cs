@@ -13,11 +13,11 @@ using NutcachePeopleManagement.Models;
 
 namespace NutcachePMGUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private string url = "https://localhost:44352/api/people";
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             loadEmployees();
@@ -75,7 +75,6 @@ namespace NutcachePMGUI
                             row[1] = emp.Email;
                             row[2] = emp.StartDate.ToString();
                             row[3] = emp.Team;
-
                             employeeDataGrid.Rows.Add(row);
                         }
                              
@@ -83,5 +82,7 @@ namespace NutcachePMGUI
                 }
             }
         }
+
+
     }
 }

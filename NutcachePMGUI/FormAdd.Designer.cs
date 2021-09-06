@@ -198,7 +198,8 @@ namespace NutcachePMGUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormAdd";
-            this.Text = "FormAdd";
+            this.Text = "Register new Employee";
+            this.Load += new System.EventHandler(this.FormAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

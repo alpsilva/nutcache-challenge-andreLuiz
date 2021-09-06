@@ -97,5 +97,10 @@ namespace NutcachePMGUI
 
             return isEmployeeUploaded;
         }
+
+        private void FormAdd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
